@@ -5,19 +5,23 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 // url이 보여지는 형태가 다름 -> 일반 브라우저처럼 보여짐
 // HTML history API 사용
 // 두가지가 큰 차이가 있지는 않음
+import Header from "Components/Header";
 import Home from "Routes/Home";
 import TV from "Routes/TV";
 import Search from "Routes/Search";
 
 export default () => (
     <Router>
-        <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/tv"  component={TV} />
-            {/* <Route path="/tv/popular" render={() => <h1>popular</h1>} /> */}
-            <Route path="/search" component={Search} />
-            <Redirect from="*" to="/" />
-        </Switch>
+        <>
+            <Header />
+            <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/tv"  component={TV} />
+                {/* <Route path="/tv/popular" render={() => <h1>popular</h1>} /> */}
+                <Route path="/search" component={Search} />
+                <Redirect from="*" to="/" />
+            </Switch>
+        </>
     </Router>
 );
 

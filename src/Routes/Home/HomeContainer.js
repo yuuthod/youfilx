@@ -53,7 +53,6 @@ export default class extends React.Component{
   // Presenter(보여주는)것 없이 렌더링만
   render() {
     const { nowPlaying, upcoming, topRated, error, loading } = this.state;
-    console.log(this.state);
     return (
       <HomePresenter 
         nowPlaying={nowPlaying} 

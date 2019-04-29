@@ -9,6 +9,7 @@ import Header from "Components/Header";
 import Home from "Routes/Home";
 import TV from "Routes/TV";
 import Search from "Routes/Search";
+import Detail from "Routes/Detail";
 
 export default () => (
     <Router>
@@ -19,6 +20,9 @@ export default () => (
                 <Route path="/tv"  component={TV} />
                 {/* <Route path="/tv/popular" render={() => <h1>popular</h1>} /> */}
                 <Route path="/search" component={Search} />
+                <Route path="/movie/:id" component={Detail} />
+                {/* :id >> : 부분은 뭐든지 와도 된다는 표시 */}
+                <Route path="/tv/:id" component={Detail} />
                 <Redirect from="*" to="/" />
             </Switch>
         </>

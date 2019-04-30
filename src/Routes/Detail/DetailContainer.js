@@ -34,6 +34,8 @@ export default class extends React.Component{
     } = this.props;
     const { isMovie } = this.state;
 
+     
+
     // parseInt : string >> number
     // id 가 number가 아니면 home 으로 return
     const parseId = parseInt(id);
@@ -43,12 +45,11 @@ export default class extends React.Component{
 
     let result = null;
     try {
+      // const a = "dd" === (a = "dd")
       if(isMovie){
-        const request = await moviesApi.movieDetail(parseId);
-        result = request.data; 
+        ({data: result} = await moviesApi.movieDetail(parseId));
       } else {
-        const request = await tvApi.tvDetail(parseId);
-        result = request.data; 
+        ({data: result} = await tvApi.tvDetail(parseId));
       }
       console.log(result);
     } catch {
@@ -61,6 +62,7 @@ export default class extends React.Component{
 
   render() {
     const { result, error, loading } = this.state;
+    console.log(result);
     return (
       <DetailPresenter 
         result={result}

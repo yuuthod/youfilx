@@ -52,12 +52,12 @@ export default class extends React.Component{
   // HomePresenter로 가는 모든 스테이트 값을 렌더링
   // Presenter(보여주는)것 없이 렌더링만
   render() {
-    const { nowPlaying, upcoming, topRated, error, loading } = this.state;
+    const { nowPlaying, upcoming, popular, error, loading } = this.state;
     return (
       <HomePresenter 
         nowPlaying={nowPlaying} 
         upcoming={upcoming}
-        topRated={topRated}
+        popular={popular}
         error={error}
         loading={loading}
       />

@@ -4,6 +4,7 @@ import DetailPresenter from "./DetailPresenter";
 // 컨테이너 컴포넌트
 
 export default class extends React.Component{
+  
   // id값을 가져와서 하나의 결과값만 보여준다.
   state = {
     result: null,
@@ -13,11 +14,13 @@ export default class extends React.Component{
 
   async componentDidMount() {
     const {
-      match: {
-        params: { id }
-      },
-      history: { push }
+      match: { params: { id } },
+      history: { push },
+      location: { pathname } 
     } = this.props;
+
+    this.isMovie = pathname.include("/movie/");
+
     // parseInt : string >> number
     // id 가 number가 아니면 home 으로 return
     const parseId = parseInt(id);

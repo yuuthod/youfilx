@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Loader from "Components/Loader";
 import Section from "Components/Section";
 import Message from "Components/Message";
+import Poster from "Components/Poster";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -17,47 +18,66 @@ const Input = styled.input`
   all: unset;
   font-size: 28px;
   width: 100%;
-
 `;
 
-const SearchPresenter = ({ 
-  movieResults, 
-  tvResults, 
-  loading, 
-  error, 
-  searchTerm, 
+const SearchPresenter = ({
+  movieResults,
+  tvResults,
+  loading,
+  error,
+  searchTerm,
   handleSubmit,
   updateTerm
 }) => (
   <Container>
     <Form onSubmit={handleSubmit}>
-      <Input placeholder="Search Movies or TV Shows" value={searchTerm} type="text" onChange={updateTerm} />
+      <Input
+        placeholder="Search Movies or TV Shows"
+        value={searchTerm}
+        type="text"
+        onChange={updateTerm}
+      />
     </Form>
-    { loading ? (
+    {loading ? (
       <Loader />
     ) : (
       <>
         {movieResults && movieResults.length > 0 && (
           <Section title="Movie Result">
             {movieResults.map(movie => (
-              <span key={movie.id}>{movie.title}</span>
-            ))}         
+              <Poster
+                key={movie.id}
+                id={movie.id}
+                imageUrl={movie.poster_path}
+                title={movie.original_title}
+                rating={movie.vote_average}
+                year={movie.release_date.substring(0, 4)}
+                isMovie={true}
+              />
+            ))}
           </Section>
         )}
         {tvResults && tvResults.length > 0 && (
           <Section title="TV Result">
             {tvResults.map(tv => (
-              <span key={tv.id}>{tv.name}</span>
-            ))}         
+              <Poster
+                key={tv.id}
+                id={tv.id}
+                imageUrl={tv.poster_path}
+                title={tv.original_name}
+                rating={tv.vote_average}
+                year={tv.first_air_date.substring(0, 4)}
+              />
+            ))}
           </Section>
         )}
         {error && <Message color="e74c3c" text={error} />}
-        { tvResults && 
-          movieResults && 
-          tvResults.length === 0 && 
+        {tvResults &&
+          movieResults &&
+          tvResults.length === 0 &&
           movieResults.length === 0 && (
             <Message text="Nothing found" color="#95a5a6" />
-          )}    
+          )}
       </>
     )}
   </Container>

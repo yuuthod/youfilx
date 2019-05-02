@@ -8,8 +8,6 @@ const api = axios.create({
   }
 });
 
-//
-
 export const moviesApi = {
   nowPlaying: () => api.get("movie/now_playing"),
   upcoming: () => api.get("movie/upcoming"), 
@@ -19,7 +17,7 @@ export const moviesApi = {
       params: {
         append_to_response: "videos"
       }
-    }),
+    }), 
   search: (term) => 
     api.get("search/movie", {
       params: {

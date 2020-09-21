@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/youfilx/static/js/main.776a7aec.chunk.js",
+    "main.js.map": "/youfilx/static/js/main.776a7aec.chunk.js.map",
+    "runtime~main.js": "/youfilx/static/js/runtime~main.a8456e91.js",
+    "runtime~main.js.map": "/youfilx/static/js/runtime~main.a8456e91.js.map",
+    "static/js/2.aaaf84df.chunk.js": "/youfilx/static/js/2.aaaf84df.chunk.js",
+    "static/js/2.aaaf84df.chunk.js.map": "/youfilx/static/js/2.aaaf84df.chunk.js.map",
+    "index.html": "/youfilx/index.html",
+    "precache-manifest.c1c862cd9173b0626b97688bca66abfe.js": "/youfilx/precache-manifest.c1c862cd9173b0626b97688bca66abfe.js",
+    "service-worker.js": "/youfilx/service-worker.js"
+  }
+}
